@@ -20,6 +20,7 @@ cd NN
 pip install numpy scipy
 ```
 
+
 ## How to Use NN
 NN is designed to be straightforward to use. Below are the basic steps to get started:
 
@@ -30,26 +31,26 @@ If you want to dive right in, you can simply run the 'NN' file for training on t
 For a more detailed understanding, here's a breakdown of the key steps:
 
 1. **Import the Classes:**
-´´´
+```
 from NN import NN, Dataset
-´´´
+```
 
-2. **Prepare Your Dataset:**
+3. **Prepare Your Dataset:**
 Create a Dataset instance with your data and labels. Here's an example with a batch size of 32:
-´´´
+```
 dataset = Dataset(my_data_np, my_labels_np, batch_size=32)
-´´´
+```
 
-3. **Initialize the Network:**
+4. **Initialize the Network:**
 Create an NN instance with the desired layer sizes:
-´´´
+```
 network = NN(\[size_of_each_layer\])
 ´´´
 
 4. **Training:**
-* Use ´(x,t)=dataset.batch_generator()´ to shuffle the data and yield new batches.
-* For each batch, run ´network.forward(x)´ on the input data x.
-* Perform backpropagation with ´network.backward(y-t)´, where y is the network output and t is the target.
+* Use `(x,t)=dataset.batch_generator()` to shuffle the data and yield new batches.
+* For each batch, run `network.forward(x)` on the input data x.
+* Perform backpropagation with `network.backward(y-t)`, where y is the network output and t is the target.
 
 ### Understanding the Code
 The if __name__ == '__main__': block in the script provides a practical example of how to train the network. For more detailed functionality, you can look at the code to understand the specific methods and their purposes.
