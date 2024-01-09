@@ -2,7 +2,7 @@
 A minimalist implementation of a neural network in Python, using Numpy. This project is designed to showcase the fundamentals of neural network architecture and operations, specifically tailored for classification tasks.
 
 ## Features
-Linear Layer with Advanced Optimization: Incorporates the Adam optimization algorithm, as detailed in Adam: A Method for Stochastic Optimization. This allows for efficient and effective training iterations.
+Linear Layer with the Adam Optimizer: Incorporates the Adam optimization algorithm, as detailed in Adam: A Method for Stochastic Optimization. This allows for efficient and effective training iterations.
 Xavier Glorot Initialization: Utilizes the Xavier Glorot method for initializing neural network weights, optimizing the learning process. For more details, see Understanding the difficulty of training deep feedforward neural networks.
 * Modular Design: The project is structured into three main classes:
   * Layer: Handles the computations for a single linear layer, including the Adam update method.
@@ -21,10 +21,10 @@ pip install numpy scipy
 ```
 
 ## How to Use NN
-NN is designed to be straightforward to use, especially for training on the MNIST dataset. Below are the basic steps to get started:
+NN is designed to be straightforward to use. Below are the basic steps to get started:
 
 ### Quick Start
-If you want to dive right in, you can simply run the main script for training on the MNIST dataset. The main script contains an example of how to use the network.
+If you want to dive right in, you can simply run the 'NN' file for training on the MNIST dataset. Look at the end of the file to find the code for training on this dataset. 
 
 ### Step-by-Step Guide
 For a more detailed understanding, here's a breakdown of the key steps:
