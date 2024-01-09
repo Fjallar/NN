@@ -49,7 +49,7 @@ network = NN(\[size_of_each_layer\])
 4. **Training:**
 * Use ´(x,t)=dataset.batch_generator()´ to shuffle the data and yield new batches.
 * For each batch, run ´network.forward(x)´ on the input data x.
-Perform backpropagation with ´network.backward(y-t)´, where y is the network output and t is the target.
+* Perform backpropagation with ´network.backward(y-t)´, where y is the network output and t is the target.
 
 ### Understanding the Code
 The if __name__ == '__main__': block in the script provides a practical example of how to train the network. For more detailed functionality, you can look at the code to understand the specific methods and their purposes.
