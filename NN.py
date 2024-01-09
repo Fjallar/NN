@@ -25,7 +25,6 @@ class NN_layer():
 		self.z = np.add(np.matmul(n,self.W),self.b)
 		self.np1 = self.forward_func(self.z)
 		self.activations = self.backward_func(self.z)
-
 		return self.np1
 	
 	def update_weights(self, d_W, d_b):
@@ -84,20 +83,10 @@ class NN():
 		return accuracy, correct
 
 class Dataset():
-	def __init__(self,file,batch_size=100):
-		mnist = loadmat(file)
-		mnist_data = mnist["data"].T
-		mnist_data = mnist_data/255.0
-		mnist_labels = mnist["label"][0]
-		mnist_labels = self.one_hot_encode(mnist_labels.astype(int))
-		n_train = 60_000 #int(mnist_label.size*0.8)
+	def __init__(self, data, labels, train_fraction=0.8, batch_size=100):
+		n_train = int(labels.shape[0]*train_fraction)
 		self.batch_size = batch_size
-		self.train_data, self.test_data, self.train_labels, self.test_labels = (mnist_data[:n_train,:],mnist_data[n_train:,:], mnist_labels[:n_train,:], mnist_labels[n_train:,:])
-		
-	def one_hot_encode(self,arr):
-		# np.eye(10) creates an identity matrix of size 10x10
-		# When indexed using arr, it selects the corresponding identity row
-		return np.eye(10)[arr]
+		self.train_data, self.test_data, self.train_labels, self.test_labels = (data[:n_train,:],data[n_train:,:], labels[:n_train,:], labels[n_train:,:])
 
 	def shuffle_data(self):
 		indices = np.random.permutation(self.train_labels.shape[0])
@@ -117,11 +106,22 @@ class Dataset():
 def print_progress_bar(iteration, total, bar_length=30):
     completed = '=' * int(bar_length * iteration // total)
     remaining = ' ' * (bar_length - len(completed))
-    print(f'\rProgress: [{completed}{remaining}] batch: {iteration}/{total}', end='')
+    print(f'\rProgress: [{completed}{remaining}] batch: {iteration+1}/{total}', end='')
 
+def one_hot_encode(arr):
+	# np.eye(10) creates an identity matrix of size 10x10
+	# When indexed using arr, it selects the corresponding identity row
+	return np.eye(10)[arr]
 
 if __name__ == "__main__":
-	dataset = Dataset("mnist-original",batch_size=32)
+	mnist = loadmat("mnist-original")
+	mnist_data = mnist["data"].T
+	mnist_data = mnist_data/255.0
+	mnist_labels = mnist["label"][0]
+	mnist_labels = one_hot_encode(mnist_labels.astype(int))
+	dataset = Dataset(mnist_data,mnist_labels, batch_size=32)
+	train_size = dataset.train_data.shape[0]
+
 	neural_net = NN([784,256,128,64,10],nabla=1e-4)
 	epochs=5
  
@@ -130,7 +130,7 @@ if __name__ == "__main__":
 			x, t = batch
 			y = neural_net.forward(x)
 			neural_net.backward(y-t)
-			print_progress_bar(i,60_000//32)
+			print_progress_bar(i,train_size//32)
 		accuracy, _ = neural_net.evaluate(dataset.test_data, dataset.test_labels)
 		print()
 		print("Epoch {}: Accuracy of {}".format(epoch,accuracy))
