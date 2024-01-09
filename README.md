@@ -15,7 +15,7 @@ SciPy: Optional, but recommended for additional scientific computing features.
 Getting Started
 To get started with NN, clone this repository and ensure you have the necessary dependencies installed:
 ```
-git clone https://github.com/[your-github-username]/NN.git
+git clone https://github.com/fjallar/NN.git
 cd NN
 pip install numpy scipy
 ```
