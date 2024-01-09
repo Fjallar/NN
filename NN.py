@@ -1,10 +1,6 @@
 import numpy as np
 from scipy.io import loadmat
-'''
-version 1:
-Basic neural network without any statistic gathering.
 
-'''
 class NN_layer():
 
 	def __init__(self,N,M,activ_func, nabla=1e-3,beta1=0.9,beta2=0.999):
