@@ -1,13 +1,13 @@
 # NN: Bare-Bones Neural Network in Numpy
-A minimalist implementation of a neural network in Python, using Numpy. This project is designed to showcase the fundamentals of neural network architecture and operations, specifically tailored for digit classification tasks.
+A minimalist implementation of a neural network in Python, using Numpy. This project is designed to showcase the fundamentals of neural network architecture and operations, specifically tailored for classification tasks.
 
 ## Features
 Linear Layer with Advanced Optimization: Incorporates the Adam optimization algorithm, as detailed in Adam: A Method for Stochastic Optimization. This allows for efficient and effective training iterations.
 Xavier Glorot Initialization: Utilizes the Xavier Glorot method for initializing neural network weights, optimizing the learning process. For more details, see Understanding the difficulty of training deep feedforward neural networks.
 * Modular Design: The project is structured into three main classes:
-  * LinearLayer: Handles the computations for a single layer, including the Adam update method.
-  * BasicNetwork: Manages a sequence of layers, capable of performing forward propagation, backpropagation, and accuracy evaluation.
-* Dataset: Designed for handling the MNIST dataset, it manages data loading, shuffling, and batching.
+  * Layer: Handles the computations for a single linear layer, including the Adam update method.
+  * NN: Manages a sequence of layers, capable of performing forward propagation, backpropagation, and accuracy evaluation.
+* Dataset: Designed for handling a numpy dataset, it manages test-train splitting, shuffling, and batching.
 
 ## Requirements
 Numpy: For all numerical computations.
