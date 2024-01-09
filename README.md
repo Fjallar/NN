@@ -7,7 +7,7 @@ Xavier Glorot Initialization: Utilizes the Xavier Glorot method for initializing
 * Modular Design: The project is structured into three main classes:
   * Layer: Handles the computations for a single linear layer, including the Adam update method.
   * NN: Manages a sequence of layers, capable of performing forward propagation, backpropagation, and accuracy evaluation.
-* Dataset: Designed for handling a numpy dataset, it manages test-train splitting, shuffling, and batching.
+ * Dataset: Designed for handling a numpy dataset, it manages test-train splitting, shuffling, and batching.
 
 ## Requirements
 Numpy: For all numerical computations.
