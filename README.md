@@ -45,7 +45,7 @@ dataset = Dataset(my_data_np, my_labels_np, batch_size=32)
 Create an NN instance with the desired layer sizes:
 ```
 network = NN(\[size_of_each_layer\])
-´´´
+```
 
 4. **Training:**
 * Use `(x,t)=dataset.batch_generator()` to shuffle the data and yield new batches.
